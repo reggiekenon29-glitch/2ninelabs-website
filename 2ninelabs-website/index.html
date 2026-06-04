@@ -1,144 +1,1152 @@
-2-Nine LabsLLC
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2-Nine Labs | Prepare for the Future Without Losing What Matters</title>
+<meta name="description" content="2-Nine Labs helps churches, community organizations, and rural healthcare providers preserve institutional knowledge, strengthen operations, and modernize through practical AI solutions.">
+<link rel="canonical" href="https://www.2ninelabs.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2B4B;
+    --navy-dark: #111D33;
+    --navy-mid: #243660;
+    --gold: #C9A84C;
+    --gold-light: #E2C47A;
+    --gold-pale: #F5EDD6;
+    --off-white: #FAF8F4;
+    --light-gray: #F2F2F0;
+    --mid-gray: #888780;
+    --dark-gray: #333330;
+    --text-body: #444441;
+    --white: #FFFFFF;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --radius: 8px;
+    --radius-lg: 14px;
+    --transition: 0.22s ease;
+  }
 
-Modernization Partner — Not an AI Agency
-Prepare for the Future
-Without Losing
-What Matters
-Helping churches, community organizations, and rural healthcare providers preserve institutional knowledge, strengthen operations, and modernize through practical technology and AI solutions.
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-Schedule a Strategy Session
-Take the Free Modernization Assessment
-Mission-Driven
-Community & legacy first
-20+ Years
-Enterprise technology experience
-Direct Engagement
-Senior-level engagement, directly
-Our Approach
-What We Do
-Four interconnected capabilities that help organizations preserve their legacy and prepare for the future.
+  html { scroll-behavior: smooth; }
 
-01
-Preserve
-Protect institutional knowledge, oral histories, and organizational legacy before it's lost to time or transition.
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-body);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
 
-02
-Modernize
-Streamline operations, reduce administrative burden, and improve efficiency through practical technology solutions.
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
 
-03
-Transform
-Prepare organizations for long-term growth and sustainability with AI-enabled workflows and operational strategy.
+  /* ── UTILITY ── */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.18;
+    margin-bottom: 18px;
+  }
+  .section-title.light { color: var(--white); }
+  .section-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--mid-gray);
+    max-width: 580px;
+    line-height: 1.75;
+  }
+  .section-sub.light { color: rgba(255,255,255,0.72); }
 
-04
-Fund
-Identify grant opportunities, build readiness documentation, and navigate capital improvement funding pathways.
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition);
+    white-space: nowrap;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy-dark);
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(201,168,76,0.35); }
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.45);
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); }
+  .btn-navy {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .btn-navy:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(27,43,75,0.35); }
 
-Our Clients
-Who We Serve
-Organizations with deep roots and long-term missions — the ones where legacy matters as much as efficiency.
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--navy-dark);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+    transition: all var(--transition);
+  }
+  nav.scrolled {
+    box-shadow: 0 4px 32px rgba(0,0,0,0.28);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.01em;
+  }
+  .nav-logo span { color: rgba(255,255,255,0.5); font-weight: 400; font-size: 14px; margin-left: 6px; vertical-align: middle; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
+    padding: 7px 13px;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+  }
+  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
+  .nav-cta { margin-left: 10px; }
+  .nav-cta .btn { padding: 10px 22px; font-size: 14px; }
 
-Historic Churches & Faith Communities
-Preserving oral histories, securing capital improvement grants, and modernizing operations for AME, Baptist, and other historic congregations.
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-Learn More
-Rural Healthcare Organizations
-Supporting rural hospitals and critical access facilities pursuing RHTP funding, compliance governance, and operational transformation.
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    background: var(--navy-dark);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-mobile .btn { margin-top: 14px; width: 100%; justify-content: center; }
 
-Learn More
-Community Institutions & Nonprofits
-Helping community organizations build grant readiness, preserve institutional memory, and improve operational capacity.
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy-dark);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 80px;
+  }
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 800px 600px at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 400px at 20% 80%, rgba(27,43,75,0.8) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .hero-eyebrow span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 19px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.75;
+    margin-bottom: 44px;
+    max-width: 600px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-actions .link-cta {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 1px;
+    transition: all var(--transition);
+  }
+  .hero-actions .link-cta:hover { color: var(--gold); border-color: var(--gold); }
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+  .hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-trust-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-trust-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .hero-trust-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.3;
+  }
+  .hero-trust-text strong { display: block; color: rgba(255,255,255,0.72); font-weight: 500; }
 
-Learn More
-Small & Mid-Sized Businesses
-Practical AI automation and operational modernization for professional service firms and growing local businesses.
+  /* ── WHAT WE DO ── */
+  #what-we-do {
+    padding: 100px 0;
+    background: var(--light-gray);
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .pillar-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    border-top: 3px solid var(--gold);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(27,43,75,0.1); }
+  .pillar-number {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 700;
+    color: rgba(201,168,76,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pillar-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .pillar-desc {
+    font-size: 15px;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
 
-Learn More
-Free Tool
-How Ready Is Your Organization?
-Take our free Modernization Assessment and receive a personalized readiness report in minutes.
+  /* ── WHO WE SERVE ── */
+  #who-we-serve {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .serve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .serve-card {
+    border: 1px solid rgba(27,43,75,0.1);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    transition: all var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .serve-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+    transform-origin: left;
+  }
+  .serve-card:hover { border-color: rgba(201,168,76,0.4); background: var(--gold-pale); }
+  .serve-card:hover::before { transform: scaleX(1); }
+  .serve-icon {
+    width: 52px; height: 52px;
+    background: rgba(27,43,75,0.06);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .serve-icon svg { width: 24px; height: 24px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
+  .serve-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .serve-desc { font-size: 14px; color: var(--mid-gray); line-height: 1.65; margin-bottom: 18px; }
+  .serve-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .serve-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform var(--transition); }
+  .serve-card:hover .serve-link svg { transform: translateX(3px); }
 
-Operational Readiness Score
-Modernization Opportunities
-Process Improvement Recommendations
-Grant Readiness Indicator
-Start the Free Assessment
-Ready to talk directly?
-Every engagement starts with a free strategy session. No pitch decks. No junior team. Direct, senior-level engagement.
+  /* ── ASSESSMENT ── */
+  #assessment {
+    padding: 100px 0;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  #assessment::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border: 1px solid rgba(201,168,76,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  #assessment::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(201,168,76,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .assessment-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .assessment-outputs {
+    list-style: none;
+    margin: 28px 0 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .assessment-outputs li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+  }
+  .check-icon {
+    width: 22px; height: 22px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .check-icon svg { width: 11px; height: 11px; stroke: var(--gold); fill: none; stroke-width: 2.5; }
+  .assessment-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    text-align: center;
+  }
+  .assessment-card-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .assessment-card-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  .assessment-card .btn { width: 100%; justify-content: center; font-size: 16px; padding: 16px 24px; }
+  .assessment-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 14px;
+  }
 
-Schedule Your Strategy Session
-Free 30-minute call. No commitment required.
+  /* ── PROCESS ── */
+  #process {
+    padding: 100px 0;
+    background: var(--off-white);
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(16.66% + 20px);
+    right: calc(16.66% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.3), var(--gold));
+    pointer-events: none;
+  }
+  .process-step {
+    padding: 0 28px;
+    text-align: center;
+  }
+  .process-number {
+    width: 56px; height: 56px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    border: 3px solid var(--gold);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    position: relative;
+    z-index: 1;
+  }
+  .process-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .process-desc { font-size: 15px; color: var(--mid-gray); line-height: 1.7; }
 
-How It Works
-A Clear Path Forward
-No jargon. No long proposals. Three steps from conversation to results.
+  /* ── SUCCESS STORIES ── */
+  #success {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .story-card {
+    border: 1px solid rgba(27,43,75,0.1);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-badge {
+    display: inline-block;
+    background: var(--gold-pale);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .story-org {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .story-type {
+    font-size: 13px;
+    color: var(--mid-gray);
+    margin-bottom: 18px;
+  }
+  .story-quote {
+    font-size: 14px;
+    color: var(--text-body);
+    line-height: 1.7;
+    font-style: italic;
+    border-left: 2px solid var(--gold-pale);
+    padding-left: 16px;
+  }
+  .story-coming {
+    margin-top: 18px;
+    font-size: 12px;
+    color: rgba(27,43,75,0.35);
+    font-weight: 500;
+  }
 
-1
-Discover
-A focused strategy session to understand your organization, its challenges, and the outcomes you're working toward.
+  /* ── FOUNDER ── */
+  #founder {
+    padding: 100px 0;
+    background: var(--navy-dark);
+  }
+  .founder-inner {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .founder-photo {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid rgba(201,168,76,0.25);
+    aspect-ratio: 4/5;
+    background: var(--navy-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .founder-photo-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.2);
+  }
+  .founder-photo-placeholder svg { width: 80px; height: 80px; stroke: currentColor; fill: none; stroke-width: 0.8; margin: 0 auto 12px; }
+  .founder-photo-placeholder p { font-size: 12px; }
+  .founder-name {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .founder-title {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 28px;
+  }
+  .founder-bio {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+  .founder-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .credential-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .credential-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .credential-desc { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.5; }
 
-2
-Diagnose
-A readiness assessment and gap analysis covering operations, technology, funding eligibility, and institutional knowledge.
+  /* ── FINAL CTA ── */
+  #final-cta {
+    padding: 100px 0;
+    background: var(--gold-pale);
+    text-align: center;
+  }
+  #final-cta .section-title { color: var(--navy); }
+  #final-cta .section-sub { color: var(--mid-gray); margin: 0 auto 40px; }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-3
-Deliver
-A practical modernization roadmap with prioritized recommendations, implementation support, and clear accountability.
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark);
+    padding: 72px 0 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 56px;
+  }
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .footer-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.65;
+    max-width: 280px;
+    margin-bottom: 24px;
+  }
+  .footer-contact a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 6px;
+    transition: color var(--transition);
+  }
+  .footer-contact a:hover { color: var(--gold); }
+  .footer-col-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    transition: color var(--transition);
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.22); }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { font-size: 12px; color: rgba(255,255,255,0.22); transition: color var(--transition); }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.5); }
 
-Case Studies
-Success Stories Coming Soon
-We are actively building partnerships with churches, healthcare organizations, and community institutions. Case studies will be published here as engagements are completed.
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow  { animation: fadeUp 0.5s ease both; animation-delay: 0.1s; }
+  .hero-headline { animation: fadeUp 0.5s ease both; animation-delay: 0.22s; }
+  .hero-sub      { animation: fadeUp 0.5s ease both; animation-delay: 0.34s; }
+  .hero-actions  { animation: fadeUp 0.5s ease both; animation-delay: 0.44s; }
+  .hero-trust    { animation: fadeUp 0.5s ease both; animation-delay: 0.56s; }
 
-Are You Our Next Success Story?
-We're currently accepting a limited number of new engagements. Schedule a free strategy session to find out if we're the right fit for your organization.
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .assessment-inner { grid-template-columns: 1fr; gap: 40px; }
+    .founder-inner { grid-template-columns: 1fr; gap: 36px; }
+    .founder-photo { max-width: 280px; aspect-ratio: 1/1; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .process-steps { grid-template-columns: 1fr; gap: 32px; }
+    .process-steps::before { display: none; }
+  }
+  @media (max-width: 640px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .founder-credentials { grid-template-columns: 1fr; }
+    .cta-actions { flex-direction: column; align-items: center; }
+  }
+  @media (max-width: 420px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
 
-Schedule a Strategy Session
-2-Nine Labs
-Dallas, Texas
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">2-Nine Labs<span>LLC</span></a>
+    <ul class="nav-links">
+      <li><a href="#who-we-serve">Who We Serve</a></li>
+      <li><a href="churches.html">Churches</a></li>
+      <li><a href="healthcare.html">Healthcare</a></li>
+      <li><a href="#success">Success Stories</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="assessment.html" class="btn btn-gold">Schedule Consultation</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="#who-we-serve">Who We Serve</a>
+    <a href="churches.html">Churches</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="#success">Success Stories</a>
+    <a href="about.html">About Us</a>
+    <a href="assessment.html" class="btn btn-gold">Schedule Consultation</a>
+  </div>
+</nav>
 
-About Us
-Who We Are
-2-Nine Labs, LLC — Dallas, Texas
-We are a boutique advisory firm specializing in AI-driven modernization, operational transformation, and institutional resilience. With more than two decades of experience across enterprise sales, emerging technologies, healthcare, education, and community organizations, we help clients navigate complexity with clarity, strategy, and practical execution.
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Modernization Partner — Not an AI Agency</span>
+      </div>
+      <h1 class="hero-headline">
+        Prepare for the Future<br>
+        <em>Without Losing</em><br>
+        What Matters
+      </h1>
+      <p class="hero-sub">
+        Helping churches, community organizations, and rural healthcare providers preserve institutional knowledge, strengthen operations, and modernize through practical technology and AI solutions.
+      </p>
+      <div class="hero-actions">
+        <a href="https://calendly.com" class="btn btn-gold">
+          Schedule a Strategy Session
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+        </a>
+        <a href="assessment.html" class="link-cta">Take the Free Modernization Assessment</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <div class="hero-trust-icon">
+            <svg viewBox="0 0 20 20"><path d="M10 2L3 7v6c0 3.5 3 6 7 6s7-2.5 7-6V7l-7-5z"/></svg>
+          </div>
+          <div class="hero-trust-text">
+            <strong>Mission-Driven</strong>
+            Community & legacy first
+          </div>
+        </div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-icon">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 3"/></svg>
+          </div>
+          <div class="hero-trust-text">
+            <strong>20+ Years</strong>
+            Enterprise technology experience
+          </div>
+        </div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-icon">
+            <svg viewBox="0 0 20 20"><path d="M3 10h14M10 3l7 7-7 7"/></svg>
+          </div>
+          <div class="hero-trust-text">
+            <strong>Direct Engagement</strong>
+            Senior-level engagement, directly
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-Our work sits at the intersection of technology, human systems, and mission-driven impact — enabling organizations to modernize without losing their identity or purpose.
+<!-- WHAT WE DO -->
+<section id="what-we-do">
+  <div class="container">
+    <div class="section-label">Our Approach</div>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-sub">Four interconnected capabilities that help organizations preserve their legacy and prepare for the future.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-number">01</div>
+        <div class="pillar-title">Preserve</div>
+        <p class="pillar-desc">Protect institutional knowledge, oral histories, and organizational legacy before it's lost to time or transition.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">02</div>
+        <div class="pillar-title">Modernize</div>
+        <p class="pillar-desc">Streamline operations, reduce administrative burden, and improve efficiency through practical technology solutions.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">03</div>
+        <div class="pillar-title">Transform</div>
+        <p class="pillar-desc">Prepare organizations for long-term growth and sustainability with AI-enabled workflows and operational strategy.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">04</div>
+        <div class="pillar-title">Fund</div>
+        <p class="pillar-desc">Identify grant opportunities, build readiness documentation, and navigate capital improvement funding pathways.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-Our Expertise
-AI Automation Consulting
-Designing practical AI workflows that streamline operations, reduce manual friction, and accelerate decision-making
-Technology Modernization Strategy
-Guiding institutions through digital transformation with a focus on sustainability, adoption, and measurable outcomes
-Business Transformation
-Supporting growing organizations and community institutions as they evolve their operations, culture, and strategic direction
-Enterprise Sales & Market Strategy
-20+ years across AI, data, and digital transformation markets — helping organizations position, scale, and compete
-Church Modernization Advisory
-Partnering with churches and faith-based institutions on preservation, operational readiness, and grant preparedness to strengthen long-term viability
-Schedule a Strategy Session
-Get Started
-Ready to Prepare for the Future?
-Schedule a free strategy session with 2-Nine Labs. No pitch decks. Just a direct conversation about your organization and what's possible.
+<!-- WHO WE SERVE -->
+<section id="who-we-serve">
+  <div class="container">
+    <div class="section-label">Our Clients</div>
+    <h2 class="section-title">Who We Serve</h2>
+    <p class="section-sub">Organizations with deep roots and long-term missions — the ones where legacy matters as much as efficiency.</p>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <div class="serve-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21V12h6v9"/><path d="M12 3v3"/></svg>
+        </div>
+        <div class="serve-title">Historic Churches &amp; Faith Communities</div>
+        <p class="serve-desc">Preserving oral histories, securing capital improvement grants, and modernizing operations for AME, Baptist, and other historic congregations.</p>
+        <a href="churches.html" class="serve-link">Learn More <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="serve-card">
+        <div class="serve-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <div class="serve-title">Rural Healthcare Organizations</div>
+        <p class="serve-desc">Supporting rural hospitals and critical access facilities pursuing RHTP funding, compliance governance, and operational transformation.</p>
+        <a href="healthcare.html" class="serve-link">Learn More <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="serve-card">
+        <div class="serve-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div class="serve-title">Community Institutions &amp; Nonprofits</div>
+        <p class="serve-desc">Helping community organizations build grant readiness, preserve institutional memory, and improve operational capacity.</p>
+        <a href="#" class="serve-link">Learn More <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="serve-card">
+        <div class="serve-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <div class="serve-title">Small &amp; Mid-Sized Businesses</div>
+        <p class="serve-desc">Practical AI automation and operational modernization for professional service firms and growing local businesses.</p>
+        <a href="#" class="serve-link">Learn More <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-Schedule Your Strategy Session
-Take the Free Assessment
-2-Nine Labs, LLC
-Prepare for the Future Without Losing What Matters
+<!-- ASSESSMENT -->
+<section id="assessment">
+  <div class="container">
+    <div class="assessment-inner">
+      <div>
+        <div class="section-label">Free Tool</div>
+        <h2 class="section-title light">How Ready Is Your Organization?</h2>
+        <p class="section-sub light">Take our free Modernization Assessment and receive a personalized readiness report in minutes.</p>
+        <ul class="assessment-outputs">
+          <li>
+            <div class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Operational Readiness Score
+          </li>
+          <li>
+            <div class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Modernization Opportunities
+          </li>
+          <li>
+            <div class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Process Improvement Recommendations
+          </li>
+          <li>
+            <div class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Grant Readiness Indicator
+          </li>
+        </ul>
+        <a href="assessment.html" class="btn btn-gold">Start the Free Assessment</a>
+      </div>
+      <div class="assessment-card">
+        <div class="assessment-card-title">Ready to talk directly?</div>
+        <p class="assessment-card-desc">Every engagement starts with a free strategy session. No pitch decks. No junior team. Direct, senior-level engagement.</p>
+        <a href="https://calendly.com" class="btn btn-gold">Schedule Your Strategy Session</a>
+        <p class="assessment-note">Free 30-minute call. No commitment required.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-info@2ninelabs.com
-214-656-7855
-Dallas, Texas
-Navigate
-Home
-Churches
-Healthcare
-Success Stories
-About Us
-Get Started
-Free Assessment
-Schedule a Call
-Privacy Policy
-Terms of Service
-© 2026 2-Nine Labs, LLC. All rights reserved. · www.2ninelabs.com
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">A Clear Path Forward</h2>
+    <p class="section-sub">No jargon. No long proposals. Three steps from conversation to results.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <div class="process-title">Discover</div>
+        <p class="process-desc">A focused strategy session to understand your organization, its challenges, and the outcomes you're working toward.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <div class="process-title">Diagnose</div>
+        <p class="process-desc">A readiness assessment and gap analysis covering operations, technology, funding eligibility, and institutional knowledge.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <div class="process-title">Deliver</div>
+        <p class="process-desc">A practical modernization roadmap with prioritized recommendations, implementation support, and clear accountability.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-Privacy
-Terms
+<!-- SUCCESS STORIES -->
+<section id="success">
+  <div class="container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">Success Stories Coming Soon</h2>
+    <p class="section-sub">We are actively building partnerships with churches, healthcare organizations, and community institutions. Case studies will be published here as engagements are completed.</p>
+    <div style="margin-top: 56px; background: var(--light-gray); border-radius: var(--radius-lg); padding: 56px 48px; text-align: center; border: 1px dashed rgba(27,43,75,0.15);">
+      <div style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 12px;">Are You Our Next Success Story?</div>
+      <p style="font-size: 15px; color: var(--mid-gray); max-width: 480px; margin: 0 auto 28px; line-height: 1.7;">We're currently accepting a limited number of new engagements. Schedule a free strategy session to find out if we're the right fit for your organization.</p>
+      <a href="https://calendly.com" class="btn btn-navy">Schedule a Strategy Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section id="founder">
+  <div class="container">
+    <div class="founder-inner">
+      <div class="founder-photo">
+        <div class="founder-photo-placeholder">
+          <svg viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" rx="4"/><path d="M10 55l18-18 12 12 10-10 20 20"/></svg>
+          <p>2-Nine Labs<br>Dallas, Texas</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">About Us</div>
+        <h2 class="founder-name">Who We Are</h2>
+        <div class="founder-title">2-Nine Labs, LLC — Dallas, Texas</div>
+        <p class="founder-bio">
+          We are a boutique advisory firm specializing in AI-driven modernization, operational transformation, and institutional resilience. With more than two decades of experience across enterprise sales, emerging technologies, healthcare, education, and community organizations, we help clients navigate complexity with clarity, strategy, and practical execution.
+        </p>
+        <p class="founder-bio" style="margin-top:-12px;">
+          Our work sits at the intersection of technology, human systems, and mission-driven impact — enabling organizations to modernize without losing their identity or purpose.
+        </p>
+        <div class="section-label" style="margin-top:28px; margin-bottom:16px;">Our Expertise</div>
+        <div class="founder-credentials">
+          <div class="credential-item">
+            <div class="credential-title">AI Automation Consulting</div>
+            <div class="credential-desc">Designing practical AI workflows that streamline operations, reduce manual friction, and accelerate decision-making</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-title">Technology Modernization Strategy</div>
+            <div class="credential-desc">Guiding institutions through digital transformation with a focus on sustainability, adoption, and measurable outcomes</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-title">Business Transformation</div>
+            <div class="credential-desc">Supporting growing organizations and community institutions as they evolve their operations, culture, and strategic direction</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-title">Enterprise Sales &amp; Market Strategy</div>
+            <div class="credential-desc">20+ years across AI, data, and digital transformation markets — helping organizations position, scale, and compete</div>
+          </div>
+          <div class="credential-item" style="grid-column: 1 / -1;">
+            <div class="credential-title">Church Modernization Advisory</div>
+            <div class="credential-desc">Partnering with churches and faith-based institutions on preservation, operational readiness, and grant preparedness to strengthen long-term viability</div>
+          </div>
+        </div>
+        <a href="https://calendly.com" class="btn btn-gold">Schedule a Strategy Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="container">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready to Prepare for the Future?</h2>
+    <p class="section-sub">Schedule a free strategy session with 2-Nine Labs. No pitch decks. Just a direct conversation about your organization and what's possible.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com" class="btn btn-navy">Schedule Your Strategy Session</a>
+      <a href="assessment.html" class="btn btn-outline-white" style="border-color:rgba(27,43,75,0.3); color:var(--navy);">Take the Free Assessment</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">2-Nine Labs, LLC</div>
+        <p class="footer-tagline">Prepare for the Future Without Losing What Matters</p>
+        <div class="footer-contact">
+          <a href="mailto:info@2ninelabs.com">info@2ninelabs.com</a>
+          <a href="tel:2146567855">214-656-7855</a>
+          <a>Dallas, Texas</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="churches.html">Churches</a></li>
+          <li><a href="healthcare.html">Healthcare</a></li>
+          <li><a href="#success">Success Stories</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get Started</div>
+        <ul class="footer-links">
+          <li><a href="assessment.html">Free Assessment</a></li>
+          <li><a href="https://calendly.com">Schedule a Call</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 2-Nine Labs, LLC. All rights reserved. · www.2ninelabs.com</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>
