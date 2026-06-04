@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Modernization Assessment | 2-Nine Labs</title>
+<meta name="description" content="Take the free 2-Nine Labs Modernization Readiness Assessment. Get a personalized report covering operations, technology, grant readiness, and modernization opportunities.">
+<link rel="canonical" href="https://www.2ninelabs.com/assessment">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2B4B; --navy-dark: #111D33; --navy-mid: #243660;
+    --gold: #C9A84C; --gold-light: #E2C47A; --gold-pale: #F5EDD6;
+    --off-white: #FAF8F4; --light-gray: #F2F2F0; --mid-gray: #888780;
+    --text-body: #444441; --white: #FFFFFF;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --radius: 8px; --radius-lg: 14px; --transition: 0.22s ease;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--text-body); background: var(--off-white); -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; border-radius: var(--radius); font-family: var(--font-body); font-size: 15px; font-weight: 500; cursor: pointer; border: none; transition: all var(--transition); white-space: nowrap; }
+  .btn-gold { background: var(--gold); color: var(--navy-dark); }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(201,168,76,0.35); }
+  .btn-navy { background: var(--navy); color: var(--white); }
+  .btn-navy:hover { background: var(--navy-dark); transform: translateY(-1px); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy-dark); border-bottom: 1px solid rgba(201,168,76,0.18); }
+  nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.28); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--gold); }
+  .nav-logo span { color: rgba(255,255,255,0.5); font-weight: 400; font-size: 14px; margin-left: 6px; vertical-align: middle; }
+  .nav-back { font-size: 14px; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 6px; transition: color var(--transition); }
+  .nav-back:hover { color: var(--gold); }
+  .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+  .nav-mobile { display: none; flex-direction: column; background: var(--navy-dark); border-top: 1px solid rgba(255,255,255,0.07); padding: 16px 24px 24px; gap: 4px; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { font-size: 15px; color: rgba(255,255,255,0.8); padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+  /* LAYOUT */
+  .assessment-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 48px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 104px 24px 80px;
+    align-items: start;
+  }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 88px; }
+  .sidebar-card {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    border: 1px solid rgba(201,168,76,0.18);
+    margin-bottom: 20px;
+  }
+  .sidebar-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
+  .sidebar-sub { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 24px; }
+  .sidebar-outputs { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .sidebar-output { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7); }
+  .sidebar-check { width: 18px; height: 18px; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sidebar-check svg { width: 9px; height: 9px; stroke: var(--gold); fill: none; stroke-width: 2.5; }
+  .sidebar-note { font-size: 12px; color: rgba(255,255,255,0.25); text-align: center; }
+  .sidebar-trust { background: var(--white); border-radius: var(--radius-lg); padding: 24px; }
+  .sidebar-trust-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+  .sidebar-trust-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; color: var(--mid-gray); line-height: 1.5; }
+  .sidebar-trust-item svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 2px; }
+
+  /* FORM */
+  .form-area {}
+  .progress-bar-wrap { background: var(--white); border-radius: var(--radius-lg); padding: 20px 28px; margin-bottom: 24px; border: 1px solid rgba(27,43,75,0.08); }
+  .progress-labels { display: flex; justify-content: space-between; margin-bottom: 10px; }
+  .progress-label { font-size: 12px; font-weight: 500; color: var(--mid-gray); }
+  .progress-label.active { color: var(--navy); }
+  .progress-track { height: 4px; background: var(--light-gray); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; width: 33%; }
+
+  .form-section { display: none; }
+  .form-section.active { display: block; }
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    border: 1px solid rgba(27,43,75,0.07);
+    margin-bottom: 16px;
+  }
+  .form-card-title { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .form-card-sub { font-size: 14px; color: var(--mid-gray); margin-bottom: 32px; line-height: 1.6; }
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 7px; }
+  .form-label .req { color: var(--gold); margin-left: 2px; }
+  .form-input, .form-select, .form-textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid rgba(27,43,75,0.12);
+    border-radius: var(--radius);
+    font-family: var(--font-body); font-size: 14px; color: var(--text-body);
+    background: var(--white); transition: border-color var(--transition);
+    appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+  .form-input.error { border-color: #c0392b; }
+  .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .scale-question { margin-bottom: 28px; }
+  .scale-q-text { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 14px; line-height: 1.5; }
+  .scale-options { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .scale-opt { position: relative; }
+  .scale-opt input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .scale-opt label {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 12px 6px; border: 1.5px solid rgba(27,43,75,0.12); border-radius: var(--radius);
+    cursor: pointer; transition: all var(--transition); text-align: center;
+    background: var(--white);
+  }
+  .scale-opt label:hover { border-color: rgba(201,168,76,0.5); background: var(--gold-pale); }
+  .scale-opt input:checked + label { border-color: var(--gold); background: var(--gold-pale); }
+  .scale-num { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1; }
+  .scale-opt input:checked + label .scale-num { color: var(--gold); }
+  .scale-hint-row { display: flex; justify-content: space-between; margin-top: 6px; }
+  .scale-hint { font-size: 11px; color: var(--mid-gray); }
+
+  .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+  .checkbox-item { position: relative; }
+  .checkbox-item input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .checkbox-item label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    border: 1.5px solid rgba(27,43,75,0.1); border-radius: var(--radius);
+    cursor: pointer; transition: all var(--transition); font-size: 14px; color: var(--text-body);
+    background: var(--white);
+  }
+  .checkbox-item label:hover { border-color: rgba(201,168,76,0.4); background: var(--gold-pale); }
+  .checkbox-item input:checked + label { border-color: var(--gold); background: var(--gold-pale); }
+  .checkbox-box {
+    width: 18px; height: 18px; border: 1.5px solid rgba(27,43,75,0.2); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--white);
+    transition: all var(--transition);
+  }
+  .checkbox-item input:checked + label .checkbox-box { background: var(--gold); border-color: var(--gold); }
+  .checkbox-box svg { width: 10px; height: 10px; stroke: var(--navy-dark); fill: none; stroke-width: 2.5; opacity: 0; transition: opacity var(--transition); }
+  .checkbox-item input:checked + label .checkbox-box svg { opacity: 1; }
+
+  .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .btn-back { background: none; border: none; font-size: 14px; color: var(--mid-gray); cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 10px 0; font-family: var(--font-body); transition: color var(--transition); }
+  .btn-back:hover { color: var(--navy); }
+  .btn-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .btn-next { padding: 14px 36px; font-size: 15px; }
+
+  /* SUCCESS */
+  .success-screen {
+    display: none;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 64px 48px;
+    border: 1px solid rgba(27,43,75,0.07);
+    text-align: center;
+  }
+  .success-screen.show { display: block; }
+  .success-icon { width: 72px; height: 72px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; }
+  .success-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .success-title { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--navy); margin-bottom: 14px; }
+  .success-sub { font-size: 17px; font-weight: 300; color: var(--mid-gray); line-height: 1.75; max-width: 480px; margin: 0 auto 36px; }
+  .success-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .score-preview { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 400px; margin: 0 auto 36px; }
+  .score-card { background: var(--light-gray); border-radius: var(--radius); padding: 18px; text-align: left; }
+  .score-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 6px; }
+  .score-value { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--navy); }
+  .score-note { font-size: 12px; color: var(--mid-gray); margin-top: 2px; }
+
+  /* FOOTER */
+  footer { background: var(--navy-dark); padding: 56px 0 0; border-top: 1px solid rgba(201,168,76,0.12); margin-top: 40px; }
+  .footer-bottom { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.22); }
+  .footer-links-inline { display: flex; gap: 20px; }
+  .footer-links-inline a { font-size: 12px; color: rgba(255,255,255,0.22); transition: color var(--transition); }
+  .footer-links-inline a:hover { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 900px) {
+    .assessment-layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
+  @media (max-width: 640px) {
+    .nav-hamburger { display: flex; }
+    .form-card { padding: 28px 22px; }
+    .form-grid-2 { grid-template-columns: 1fr; }
+    .scale-options { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .scale-num { font-size: 16px; }
+    .score-preview { grid-template-columns: 1fr 1fr; }
+    .success-screen { padding: 40px 24px; }
+    .assessment-layout { padding-top: 88px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">2-Nine Labs<span>LLC</span></a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Home
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="churches.html">Churches</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="about.html">About Us</a>
+  </div>
+</nav>
+
+<div class="assessment-layout">
+
+  <!-- MAIN FORM -->
+  <div class="form-area">
+
+    <!-- PROGRESS -->
+    <div class="progress-bar-wrap">
+      <div class="progress-labels">
+        <span class="progress-label active" id="pl-1">1 · Your Organization</span>
+        <span class="progress-label" id="pl-2">2 · Readiness Questions</span>
+        <span class="progress-label" id="pl-3">3 · Priorities</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="form-section active" id="section-1">
+      <div class="form-card">
+        <div class="form-card-title">About Your Organization</div>
+        <p class="form-card-sub">Help us understand your context so the assessment results are as relevant as possible.</p>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="first-name">First Name</label>
+            <input class="form-input" type="text" id="first-name" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="last-name">Last Name</label>
+            <input class="form-input" type="text" id="last-name" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address <span class="req">*</span></label>
+          <input class="form-input" type="email" id="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone Number <span style="color:var(--mid-gray); font-weight:400;">(optional)</span></label>
+          <input class="form-input" type="tel" id="phone" placeholder="(xxx) xxx-xxxx">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="org-name">Organization Name</label>
+          <input class="form-input" type="text" id="org-name" placeholder="Your organization's name">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="org-type">Organization Type</label>
+            <select class="form-select" id="org-type">
+              <option value="">Select type...</option>
+              <option>Historic Church</option>
+              <option>Faith-Based Organization</option>
+              <option>Rural Hospital</option>
+              <option>Critical Access Hospital</option>
+              <option>Health System</option>
+              <option>Nonprofit / Community Organization</option>
+              <option>Small or Mid-Sized Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="role">Your Role</label>
+            <select class="form-select" id="role">
+              <option value="">Select role...</option>
+              <option>Executive Director / CEO</option>
+              <option>Pastor / Senior Pastor</option>
+              <option>Administrator / COO</option>
+              <option>Board Member / Trustee</option>
+              <option>Department Head</option>
+              <option>Owner / Founder</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-nav">
+        <div></div>
+        <button class="btn btn-navy btn-next" onclick="goToSection(2)">
+          Next: Readiness Questions
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="form-section" id="section-2">
+      <div class="form-card">
+        <div class="form-card-title">Readiness Questions</div>
+        <p class="form-card-sub">Rate your organization on a scale of 1 to 5 for each area. Be honest — this is for your benefit.</p>
+
+        <div class="scale-question">
+          <div class="scale-q-text">1. How well-documented are your organization's historical records and institutional knowledge?</div>
+          <div class="scale-options">
+            <div class="scale-opt"><input type="radio" name="q1" id="q1-1" value="1"><label for="q1-1"><span class="scale-num">1</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q1" id="q1-2" value="2"><label for="q1-2"><span class="scale-num">2</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q1" id="q1-3" value="3"><label for="q1-3"><span class="scale-num">3</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q1" id="q1-4" value="4"><label for="q1-4"><span class="scale-num">4</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q1" id="q1-5" value="5"><label for="q1-5"><span class="scale-num">5</span></label></div>
+          </div>
+          <div class="scale-hint-row"><span class="scale-hint">1 = Not at all</span><span class="scale-hint">5 = Fully documented</span></div>
+        </div>
+
+        <div class="scale-question">
+          <div class="scale-q-text">2. How efficient are your current administrative and operational processes?</div>
+          <div class="scale-options">
+            <div class="scale-opt"><input type="radio" name="q2" id="q2-1" value="1"><label for="q2-1"><span class="scale-num">1</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q2" id="q2-2" value="2"><label for="q2-2"><span class="scale-num">2</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q2" id="q2-3" value="3"><label for="q2-3"><span class="scale-num">3</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q2" id="q2-4" value="4"><label for="q2-4"><span class="scale-num">4</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q2" id="q2-5" value="5"><label for="q2-5"><span class="scale-num">5</span></label></div>
+          </div>
+          <div class="scale-hint-row"><span class="scale-hint">1 = Very inefficient</span><span class="scale-hint">5 = Highly efficient</span></div>
+        </div>
+
+        <div class="scale-question">
+          <div class="scale-q-text">3. How prepared is your organization to apply for and manage grant funding?</div>
+          <div class="scale-options">
+            <div class="scale-opt"><input type="radio" name="q3" id="q3-1" value="1"><label for="q3-1"><span class="scale-num">1</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q3" id="q3-2" value="2"><label for="q3-2"><span class="scale-num">2</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q3" id="q3-3" value="3"><label for="q3-3"><span class="scale-num">3</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q3" id="q3-4" value="4"><label for="q3-4"><span class="scale-num">4</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q3" id="q3-5" value="5"><label for="q3-5"><span class="scale-num">5</span></label></div>
+          </div>
+          <div class="scale-hint-row"><span class="scale-hint">1 = Not prepared</span><span class="scale-hint">5 = Fully ready</span></div>
+        </div>
+
+        <div class="scale-question">
+          <div class="scale-q-text">4. How effectively does your organization currently use technology in day-to-day operations?</div>
+          <div class="scale-options">
+            <div class="scale-opt"><input type="radio" name="q4" id="q4-1" value="1"><label for="q4-1"><span class="scale-num">1</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q4" id="q4-2" value="2"><label for="q4-2"><span class="scale-num">2</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q4" id="q4-3" value="3"><label for="q4-3"><span class="scale-num">3</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q4" id="q4-4" value="4"><label for="q4-4"><span class="scale-num">4</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q4" id="q4-5" value="5"><label for="q4-5"><span class="scale-num">5</span></label></div>
+          </div>
+          <div class="scale-hint-row"><span class="scale-hint">1 = Minimal use</span><span class="scale-hint">5 = Fully integrated</span></div>
+        </div>
+
+        <div class="scale-question" style="margin-bottom:0;">
+          <div class="scale-q-text">5. How well-prepared is your organization for leadership succession or major transitions?</div>
+          <div class="scale-options">
+            <div class="scale-opt"><input type="radio" name="q5" id="q5-1" value="1"><label for="q5-1"><span class="scale-num">1</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q5" id="q5-2" value="2"><label for="q5-2"><span class="scale-num">2</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q5" id="q5-3" value="3"><label for="q5-3"><span class="scale-num">3</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q5" id="q5-4" value="4"><label for="q5-4"><span class="scale-num">4</span></label></div>
+            <div class="scale-opt"><input type="radio" name="q5" id="q5-5" value="5"><label for="q5-5"><span class="scale-num">5</span></label></div>
+          </div>
+          <div class="scale-hint-row"><span class="scale-hint">1 = No plan</span><span class="scale-hint">5 = Fully planned</span></div>
+        </div>
+      </div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="goToSection(1)">
+          <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+          Back
+        </button>
+        <button class="btn btn-navy btn-next" onclick="goToSection(3)">
+          Next: Your Priorities
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="form-section" id="section-3">
+      <div class="form-card">
+        <div class="form-card-title">Your Priorities</div>
+        <p class="form-card-sub">Select all areas where your organization needs the most support. This helps us personalize your readiness report.</p>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="p1" value="oral-history">
+            <label for="p1"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Preserve oral histories and institutional archives</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="p2" value="operations">
+            <label for="p2"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Improve operational efficiency and reduce administrative burden</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="p3" value="grants">
+            <label for="p3"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Secure grant funding or capital improvement funds</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="p4" value="technology">
+            <label for="p4"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Modernize technology and digital systems</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="p5" value="succession">
+            <label for="p5"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Develop a leadership succession or transition plan</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="p6" value="ai-automation">
+            <label for="p6"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Reduce manual work through AI automation</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="p7" value="rhtp">
+            <label for="p7"><div class="checkbox-box"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5 4-4"/></svg></div>Navigate RHTP or federal healthcare transformation funding</label>
+          </div>
+        </div>
+        <div class="form-group" style="margin-top:24px; margin-bottom:0;">
+          <label class="form-label" for="additional">Anything else you'd like us to know? <span style="color:var(--mid-gray); font-weight:400;">(optional)</span></label>
+          <textarea class="form-textarea" id="additional" rows="3" placeholder="Share any context that would help us personalize your assessment results..."></textarea>
+        </div>
+      </div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="goToSection(2)">
+          <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+          Back
+        </button>
+        <button class="btn btn-gold btn-next" onclick="submitAssessment()">
+          Get My Readiness Report
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h2 class="success-title">Assessment Received</h2>
+      <p class="success-sub">Thank you. Your Modernization Readiness Report is being prepared. We'll review your responses personally and follow up within 24 hours with your results and recommendations.</p>
+      <div class="score-preview" id="score-preview"></div>
+      <div class="success-actions">
+        <a href="https://calendly.com" class="btn btn-navy">
+          Schedule Your Strategy Session Now
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </a>
+        <a href="index.html" class="btn" style="background:var(--light-gray); color:var(--navy);">Return to Home</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Your Readiness Report Includes</div>
+      <p class="sidebar-sub">Complete the assessment to receive a personalized report covering these four areas.</p>
+      <div class="sidebar-outputs">
+        <div class="sidebar-output">
+          <div class="sidebar-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2 2 4-4"/></svg></div>
+          Operational Readiness Score
+        </div>
+        <div class="sidebar-output">
+          <div class="sidebar-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2 2 4-4"/></svg></div>
+          Modernization Opportunities
+        </div>
+        <div class="sidebar-output">
+          <div class="sidebar-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2 2 4-4"/></svg></div>
+          Process Improvement Recommendations
+        </div>
+        <div class="sidebar-output">
+          <div class="sidebar-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2 2 4-4"/></svg></div>
+          Grant Readiness Indicator
+        </div>
+      </div>
+      <p class="sidebar-note">Takes 5 minutes. Free. No commitment required.</p>
+    </div>
+    <div class="sidebar-trust">
+      <div class="sidebar-trust-title">What happens after you submit?</div>
+      <div class="sidebar-trust-item">
+        <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="6"/><path d="M7 4v3.5l2 2"/></svg>
+        We review your responses personally within 24 hours
+      </div>
+      <div class="sidebar-trust-item">
+        <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+        You receive a personalized readiness report via email
+      </div>
+      <div class="sidebar-trust-item">
+        <svg viewBox="0 0 14 14"><path d="M3 4h8M3 7h8M3 10h5"/></svg>
+        A follow-up strategy session is offered at no cost
+      </div>
+      <div class="sidebar-trust-item">
+        <svg viewBox="0 0 14 14"><path d="M7 1l1.5 3.5L12 5l-2.5 2.5.5 3.5L7 9.5 4 11l.5-3.5L2 5l3.5-.5z"/></svg>
+        No sales pressure. No commitment required.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 2-Nine Labs, LLC. All rights reserved. · www.2ninelabs.com · info@2ninelabs.com</p>
+      <div class="footer-links-inline">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+
+  function goToSection(n) {
+    if (n === 2) {
+      const email = document.getElementById('email').value.trim();
+      if (!email || !email.includes('@')) {
+        const el = document.getElementById('email');
+        el.classList.add('error');
+        el.focus();
+        el.addEventListener('input', () => el.classList.remove('error'), { once: true });
+        return;
+      }
+    }
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + n).classList.add('active');
+    const pcts = { 1: '33%', 2: '66%', 3: '100%' };
+    document.getElementById('progress-fill').style.width = pcts[n];
+    ['pl-1','pl-2','pl-3'].forEach((id, i) => {
+      document.getElementById(id).classList.toggle('active', i < n);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function getRadioVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? parseInt(el.value) : 0;
+  }
+
+  function submitAssessment() {
+    const scores = [1,2,3,4,5].map(i => getRadioVal('q' + i));
+    const total = scores.reduce((a,b) => a + b, 0);
+    const avg = total / 5;
+    const priorities = Array.from(document.querySelectorAll('.checkbox-group input:checked')).map(el => el.value);
+
+    const data = {
+      firstName: document.getElementById('first-name').value,
+      lastName: document.getElementById('last-name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      orgName: document.getElementById('org-name').value,
+      orgType: document.getElementById('org-type').value,
+      role: document.getElementById('role').value,
+      scores: { q1: scores[0], q2: scores[1], q3: scores[2], q4: scores[3], q5: scores[4] },
+      overallScore: avg.toFixed(1),
+      priorities,
+      additional: document.getElementById('additional').value,
+      source: 'assessment-page',
+      timestamp: new Date().toISOString()
+    };
+    console.log('Assessment submission:', data);
+
+    const labels = ['Knowledge', 'Operations', 'Grant Ready', 'Technology', 'Succession'];
+    const preview = document.getElementById('score-preview');
+    preview.innerHTML = scores.map((s, i) => `
+      <div class="score-card">
+        <div class="score-label">${labels[i]}</div>
+        <div class="score-value">${s || '—'}<span style="font-size:14px;color:var(--mid-gray)">/5</span></div>
+      </div>`).join('');
+
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('success-screen').classList.add('show');
+    document.getElementById('progress-fill').style.width = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
